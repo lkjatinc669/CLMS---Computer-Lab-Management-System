@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🖥️ Computer Lab Management System (CLMS)
 
-## Getting Started
+The **Computer Lab Management System (CLMS)** is a web-based application designed to manage and monitor computer lab infrastructure efficiently.  
+It helps administrators track the status and availability of PCs and their components across multiple tables in a computer lab.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🎯 Objectives
+
+- Maintain real-time status of lab PCs
+- Track component availability and working condition
+- Simplify maintenance and fault detection
+- Provide centralized monitoring through a dashboard
+
+---
+
+## 🚀 Features
+
+### 🔹 Dashboard
+- Total number of tables, PCs, and components
+- Count of faulty and working components
+- Table-wise lab health overview
+
+### 🔹 PC Management
+- Supports 5 lab tables (TABLE1 – TABLE5)
+- Each table contains 4 PCs
+- Each PC contains CPU, Monitor, Keyboard, Mouse
+- Visual PC representation
+- Update component status using checkboxes
+
+### 🔹 Maintenance Module
+- Lists faulty components
+- Allows marking components as repaired
+
+### 🔹 Reports
+- Table-wise component summary
+- Fault frequency tracking
+
+---
+
+## 🛠️ Technology Stack
+
+- **Frontend:** Next.js (App Router)
+- **Backend:** Next.js API Routes
+- **Database:** SQLite
+- **DB Library:** better-sqlite3
+- **Styling:** Tailwind CSS
+- **Icons:** react-icons
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+ ├── app/
+ │   ├── api/
+ │   ├── dashboard/
+ │   ├── table/[id]/
+ │   ├── maintenance/
+ │   └── reports/
+ ├── components/
+ ├── lib/
+ └── public/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🗃️ Database Schema
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sql
+CREATE TABLE component_status (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  table_name TEXT,
+  pc_name TEXT,
+  components_name TEXT,
+  avalibility TEXT,
+  working TEXT
+);
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🔌 API Endpoints
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `GET /api/dashboard`
+- `GET /api/pc-status?table=TABLE1&pc=PC1`
+- `POST /api/update-status`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ⚙️ Installation & Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm install
+npm install better-sqlite3
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🎓 Academic Use
+
+Suitable for:
+- Final Year Project
+- Mini Project
+- Web Technology & DBMS Labs
+
+---
+
+## 📜 License
+
+Educational use only.
